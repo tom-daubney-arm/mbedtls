@@ -764,19 +764,6 @@ pre_check_tools () {
     "$@" scripts/output_env.sh
 }
 
-pre_generate_files() {
-    # since make doesn't have proper dependencies, remove any possibly outdate
-    # file that might be around before generating fresh ones
-    make neat
-    if [ $QUIET -eq 1 ]; then
-        make generated_files >/dev/null
-    else
-        make generated_files
-    fi
-}
-
-
-
 ################################################################
 #### Basic checks
 ################################################################
@@ -795,26 +782,6 @@ pre_generate_files() {
 component_check_recursion () {
     msg "Check: recursion.pl" # < 1s
     tests/scripts/recursion.pl library/*.c
-}
-
-component_check_generated_files () {
-    msg "Check: check-generated-files, files generated with make" # 2s
-    make generated_files
-    tests/scripts/check-generated-files.sh
-
-    msg "Check: check-generated-files -u, files present" # 2s
-    tests/scripts/check-generated-files.sh -u
-    # Check that the generated files are considered up to date.
-    tests/scripts/check-generated-files.sh
-
-    msg "Check: check-generated-files -u, files absent" # 2s
-    command make neat
-    tests/scripts/check-generated-files.sh -u
-    # Check that the generated files are considered up to date.
-    tests/scripts/check-generated-files.sh
-
-    # This component ends with the generated files present in the source tree.
-    # This is necessary for subsequent components!
 }
 
 component_check_doxy_blocks () {
