@@ -128,7 +128,7 @@ pre_check_environment () {
 }
 
 pre_initialize_variables () {
-    CONFIG_H='include/mbedtls/mbedtls_config.h'
+    CONFIG_H='include/mbedtls/config.h'
     CRYPTO_CONFIG_H='include/psa/crypto_config.h'
 
     # Files that are clobbered by some jobs will be backed up. Use a different
