@@ -30,7 +30,7 @@
 #define MBEDTLS_EXIT_FAILURE    EXIT_FAILURE
 #endif /* MBEDTLS_PLATFORM_C */
 
-#if !defined(MBEDTLS_ECDH_C) || !defined(MBEDTLS_ECDH_LEGACY_CONTEXT) || \
+#if !defined(MBEDTLS_ECDH_C) || /*!defined(MBEDTLS_ECDH_LEGACY_CONTEXT) || */ \
     !defined(MBEDTLS_ECP_DP_CURVE25519_ENABLED) || \
     !defined(MBEDTLS_ENTROPY_C) || !defined(MBEDTLS_CTR_DRBG_C)
 int main( void )

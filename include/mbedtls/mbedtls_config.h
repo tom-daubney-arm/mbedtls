@@ -690,7 +690,7 @@
  *        elliptic curve functionality. It is incompatible with
  *        MBEDTLS_ECP_ALT, MBEDTLS_ECDH_XXX_ALT, MBEDTLS_ECDSA_XXX_ALT.
  */
-//#define MBEDTLS_ECP_RESTARTABLE
+#define MBEDTLS_ECP_RESTARTABLE
 
 /**
  * \def MBEDTLS_ECDSA_DETERMINISTIC
